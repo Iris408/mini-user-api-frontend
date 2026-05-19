@@ -1,73 +1,110 @@
-# React + TypeScript + Vite
+# Mini User API Frontend
+# ミニユーザーAPIフロントエンド / 미니 사용자 API 프론트엔드
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A full-stack authentication dashboard built with React, TypeScript, FastAPI, PostgreSQL, and JWT authentication.
 
-Currently, two official plugins are available:
+# React・TypeScript・FastAPI・PostgreSQL・JWT認証を使用して構築したフルスタック認証ダッシュボードです。
+# React, TypeScript, FastAPI, PostgreSQL 및 JWT 인증을 사용하여 구축한 풀스택 인증 대시보드입니다.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+# Features / 機能 / 주요 기능
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- JWT Authentication  
+  JWT認証  
+  JWT 인증
 
-## Expanding the ESLint configuration
+- Protected Dashboard Routes  
+  保護されたダッシュボードルート  
+  보호된 대시보드 라우트
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+- User Login System  
+  ユーザーログインシステム  
+  사용자 로그인 시스템
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+- Admin Dashboard  
+  管理者ダッシュボード  
+  관리자 대시보드
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- User Management  
+  ユーザー管理  
+  사용자 관리
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+- API Integration  
+  API統合  
+  API 통합
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+- React State Management  
+  React状態管理  
+  React 상태 관리
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
+- Multi-Page Frontend Structure  
+  マルチページフロントエンド構成  
+  멀티 페이지 프론트엔드 구조
 
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-```
+---
+
+# Tech Stack / 技術スタック/ 기술 스택
+
+## Frontend
+- React
+- TypeScript
+- CSS
+- Vite
+
+## Backend
+- FastAPI
+- Python
+- PostgreSQL
+- SQLAlchemy
+
+## Tools
+- Git
+- GitHub
+- VS Code
+
+---
+
+# Authentication Flow / 認証フロー/ 인증 흐름
+
+1. User logs in  
+   ユーザーがログイン / 사용자가 로그인
+
+2. Backend validates credentials  
+   バックエンドが認証情報を確認 / 백엔드가 인증 정보를 검증
+
+3. JWT token is generated  
+   JWTトークンを生成 / JWT 토큰 생성
+
+4. Token stored in localStorage  
+   localStorageへ保存 / localStorage에 저장
+
+5. Protected dashboard is unlocked  
+   保護されたダッシュボードへアクセス / 보호된 대시보드 접근
+
+---
+
+# Future Improvements/ 今後の改善/ 향후 개선 사항
+
+- Docker containerisation
+- Cloud deployment
+- Refresh tokens
+- Improved responsive design
+- User profile editing
+- Dark/light mode support
+
+---
+
+# Learning Outcomes/ 学習内容/ 학습 내용
+
+This project helped improve understanding of:
+このプロジェクトを通して以下を学習しました：
+이 프로젝트를 통해 다음 내용을 학습했습니다:
+
+- Frontend/backend integration
+- JWT authentication
+- React hooks
+- REST APIs
+- Protected routes
+- Async API requests
+- Full-stack application structure
