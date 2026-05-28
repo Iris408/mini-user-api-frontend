@@ -1,99 +1,100 @@
-# Mini User API Frontend
-# ミニユーザーAPIフロントエンド / 미니 사용자 API 프론트엔드
+# JWT Authentication Dashboard
+## JWT認証ダッシュボード
 
-A full-stack authentication dashboard built with React, TypeScript, FastAPI, PostgreSQL, and JWT authentication.
+JWT Authentication Dashboard is a React + TypeScript frontend application connected to a deployed FastAPI backend.
+It supports user login, JWT token storage, protected dashboard access, admin-only user list, and role-based UI flows.
 
-認証を使用して構築したフルスタック認証ダッシュボードです。
-인증을 사용하여 구축한 풀스택 인증 대시보드입니다.
+JWT認証ダッシュボードは、デプロイ済みのFastAPIバックエンドに接続されたReact + TypeScriptフロントエンドアプリケーションです。
+ユーザーログイン、JWTトークンの保存、保護されたダッシュボードアクセス、管理者専用ユーザーリスト、ロールベースのUIフローをサポートしています。
 
 ---
 
-# Features / 機能 / 주요 기능
+## Getting Started / ローカル起動
 
-| English | 日本語 | 한국어 |
+Clone the repository:
+```bash
+git clone https://github.com/Iris408/jwt-authentication-dashboard
+cd jwt-authentication-dashboard
+npm install
+```
+Create a `.env` file in the project root:
+```bash
+VITE_API_URL=https://mini-user-api.onrender.com
+```
+
+Start the server:
+```bash
+npm run dev
+```
+
+---
+
+# Live Demo  / ライブデモ
+
+Frontend deployed on Vercel:
+```text
+https://jwt-authentication-dashboard-sepia.vercel.app
+```
+Backend API deployed on Render:
+```text
+https://mini-user-api.onrender.com/docs
+```
+
+---
+
+# Tech Stack / 技術スタック
+
+|---|---|
+| Frontend | React, TypeScript, CSS, Vite, React Router |
+| Backend | FastAPI, PostgreSQL, SQLAlchemy, JWT Authentication |
+| Deployment | Vercel, Render |
+| Tools | Git, GitHub, VS Code |
+
+---
+
+# Features / 機能 
+
+| English | 日本語 |
+|---|---|
+| User login flow | ユーザーログインフロー |
+| Protected dashboard route | 保護されたダッシュボードルート |
+| Admin-only user lsit | 管理者専用ユーザー一覧 |
+| Role-based access control | ロールベースアクセス制御 |
+| API Integration with deployed backend | デプロイ済みバックエンドとのAPI統合 |
+| Multi-Page frontend routing | マルチページフロントエンドルーティング |
+| Responsive UI Styling | レスポンシブUIスタイリング |
+
+---
+
+## Pages
+
+| Page | Route | Description |
 |---|---|---|
-| JWT Authentication | JWT認証 | JWT 인증 |
-| Protected Routes | 保護ルート | 보호 라우트 |
-| Admin Dashboard | 管理者ダッシュボード | 관리자 대시보드 |
-| User Management | ユーザー管理 | 사용자 관리 |
-| API Integration | API統合 | API 통합 |
-| React State Management | React状態管理 | React 상태 관리 |
-| Multi-Page Frontend | マルチページ構成 | 멀티 페이지 구조 |
-| Responsive UI Styling | レスポンシブUI | 반응형 UI |
+| Login | `/` | User login page |
+| Dashboard | `/dashboard` | Protected user profile page |
+| Admin | `/admin` | Admin-only user list |
 
 ---
 
-# Tech Stack / 技術スタック/ 기술 스택
+## API Routes Used
 
-## Frontend
-- React
-- TypeScript
-- CSS
-- Vite
-
-## Backend
-- FastAPI
-- Python
-- PostgreSQL
-- SQLAlchemy
-
-## Tools
-- Git
-- GitHub
-- VS Code
-
----
-
-## Screenshots
-
-<p float="left">
-  <img src="./login_screenshot.png" width="32%" />
-  <img src="./dashboard_screenshot.png" width="32%" />
-  <img src="./admin_screenshot.png" width="32%" />
-</p>
-
----
-
-# Authentication Flow / 認証フロー / 인증 흐름
-
-1. Login request sent  
-   ログイン要求送信 / 로그인 요청 전송
-
-2. Backend validates credentials  
-   認証情報確認 / 사용자 인증 확인
-
-3. JWT token generated  
-   JWT生成 / JWT 생성
-
-4. Token stored in localStorage  
-   localStorage保存 / localStorage 저장
-
-5. Protected dashboard unlocked  
-   保護ページアクセス / 보호된 페이지 접근
-
----
-
-# Future Improvements/ 今後の改善/ 향후 개선 사항
-
-| English | 日本語 | 한국어 |
+| Method | Endpoint | Purpose |
 |---|---|---|
-| Docker containerisation | Dockerコンテナ化 | Docker 컨테이너화 |
-| Cloud deployment | クラウドデプロイ | 클라우드 배포 |
-| Refresh token support | リフレッシュトークン対応 | 리프레시 토큰 지원 |
-| Improved responsive design | レスポンシブデザイン改善 | 반응형 디자인 개선 |
-| User profile editing | ユーザープロフィール編集 | 사용자 프로필 수정 |
-| Dark/light mode support | ダーク・ライトモード対応 | 다크/라이트 모드 지원 |
+| POST | `/login` | Login and receive JWT token |
+| GET | `/profile` | Get authenticated user profile |
+| GET | `/users` | Admin-only user list |
 
 ---
 
-# Learning Outcomes/ 学習内容/ 학습 내용
+# Future Improvements/ 今後の改善
 
-| English | 日本語 | 한국어 |
-|---|---|---|
-| Frontend/backend integration | フロントエンド・バックエンド統合 | 프론트엔드/백엔드 통합 |
-| JWT authentication | JWT認証 | JWT 인증 |
-| REST API communication | REST API通信 | REST API 통신 |
-| React state management | React状態管理 | React 상태 관리 |
-| Protected routes | 保護ルート | 보호 라우트 |
-| Async API requests | 非同期APIリクエスト | 비동기 API 요청 |
-| Full-stack architecture | フルスタック構造 | 풀스택 구조 |
+| English | 日本語 |
+|---|---|
+| CI/CD pipeline | CI/CDパイプライン |
+| Refresh token support | リフレッシュトークン対応 |
+| Improved mobile styling | モバイル表示の改善 |
+| User profile editing | ユーザープロフィール編集 |
+| Admin role editing | 管理者ロールの編集 |
+| Loading states and error message | 読み込み状態とエラーメッセージ |
+| Frontend tests | フロントエンドのテスト |
+| Dark/light mode support | ダーク・ライトモード対応 |
