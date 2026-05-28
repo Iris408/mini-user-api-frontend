@@ -48,16 +48,12 @@ function DashboardPage() {
 
       <h1>Dashboard</h1>
 
-      <br />
-
       {profile && (
-        <div>
+        <div className="info-card">
           <h2>User Information</h2>
 
           <p>Username: {profile.username}</p>
-
-          <p>Role: {profile.role || "user"}</p>
-
+          <p>Role: {profile.role || "User"}</p>
           <p>User ID: {profile.id}</p>
 
           <button onClick={logoutUser}>Logout</button>

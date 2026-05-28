@@ -8,7 +8,7 @@ function LoginPage() {
 
   const navigate = useNavigate();
 
-  async function loginUser(event: React.SubmitEvent) {
+  async function loginUser(event: React.FormEvent<HTMLFormElement>) {
     event.preventDefault();
 
     const API_URL = import.meta.env.VITE_API_URL;
@@ -27,8 +27,8 @@ function LoginPage() {
 
       const data = await response.json();
 
-      console.log("Login respponse:", data);
-      console.log("Access token:", data.access_token)
+      console.log("Login response:", data);
+      console.log("Access token:", data.access_token);
 
       if (!response.ok) {
         setErrorMessage(data.detail || "Login failed");
@@ -46,28 +46,30 @@ function LoginPage() {
   }
 
   return (
-    <div className="container">
-      <h1>Login</h1>
+    <div className="login-page">
+      <div className="login-container">
+        <h1>Login</h1>
 
-      <form onSubmit={loginUser}>
-        <input
-          type="text"
-          placeholder="Username"
-          value={username}
-          onChange={(event) => setUsername(event.target.value)}
-        />
+        <form onSubmit={loginUser}>
+          <input
+            type="text"
+            placeholder="Username"
+            value={username}
+            onChange={(event) => setUsername(event.target.value)}
+          />
 
-        <input
-          type="password"
-          placeholder="Password"
-          value={password}
-          onChange={(event) => setPassword(event.target.value)}
-        />
+          <input
+            type="password"
+            placeholder="Password"
+            value={password}
+            onChange={(event) => setPassword(event.target.value)}
+          />
 
-        <button type="submit">Login</button>
-      </form>
+          <button type="submit">Login</button>
+        </form>
 
-      {errorMessage && <p>{errorMessage}</p>}
+        {errorMessage && <p>{errorMessage}</p>}
+      </div>
     </div>
   );
 }

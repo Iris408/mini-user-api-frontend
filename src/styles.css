@@ -1,76 +1,136 @@
-body {
+* {
+  box-sizing: border-box;
+}
 
-  font-family: Arial, sans-serif;
-
-  background:
-    linear-gradient(135deg,#14113c,#2b1fff);
+html,
+body,
+#root {
   margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  width: 100%;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  background: linear-gradient(135deg, #1f2937, #334155);
+  color: #ffffff;
+}
+
+/* Main page wrapper */
+.container {
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 32px 24px;
+}
+
+/* Login page wrapper */
+.login-page {
   min-height: 100vh;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white;
 }
 
-.container {
-    background: #1f1b4d;
-    padding: 40px;
-    border-radius: 20px;
-    width: 100%;
-    max-width: 600px;
-    margin: auto;
-    backdrop-filter: blur(8px);
-
+/* Login page card */
 .login-container {
-  background: rgba(255,255,255,0.08);
-  padding: 40px;
+  background: #263445;
+  color: #ffffff;
+  padding: 36px;
   border-radius: 20px;
-  width: 400px;
-  backdrop-filter: blur(8px);
+  width: 100%;
+  max-width: 340px;
   text-align: center;
-    }
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.25);
 }
+
+/* Smaller login inputs */
+.login-container input {
+  width: 85%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Dashboard/Admin cards */
+.user-card,
+.info-card {
+  background: #263445;
+  color: #111827;
+  padding: 20px;
+  border-radius: 12px;
+  margin-bottom: 15px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Lined box around user info on Dashboard */
+.info-card {
+  border: 2px solid #cbd5e1;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* Inputs */
+input {
+  background: #ffffff;
+  color: #111827;
+  border: 1px solid #cbd5e1;
+  border-radius: 8px;
+  padding: 10px;
+  margin-top: 12px;
+  width: 100%;
+  display: block;
+}
+
+input:focus {
+  outline: none;
+  border-color: #334155;
+}
+
+/* Buttons */
 button {
-  background: #6d5dfc;
-  color: white;
+  background: #334155;
+  color: #ffffff;
   border: none;
   border-radius: 8px;
   padding: 12px 18px;
   margin-top: 12px;
   cursor: pointer;
+  font-weight: bold;
 }
 
 button:hover {
-  background: #5848d8;
-}
-input {
-    background: #2b2b2b;
-    color: white;
-    border: 1px solid #555;
-    border-radius: 8px;
-    padding: 12px;
-    margin-top: 12px;
-    width: 20%;
+  background: #1f2937;
 }
 
+/* Separate buttons on Admin page */
+.admin-buttons {
+  display: flex;
+  gap: 16px;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+}
+
+/* Navbar */
 .navbar {
-    display: flex;
-    gap: 20px;
-    margin-bottom: 30px;
+  display: flex;
+  gap: 20px;
+  margin-bottom: 30px;
+  padding: 16px 0;
 }
 
 .navbar a {
-    text-decoration: none;
-    color: #d6d3ff;
-    font-weight: bold;
+  text-decoration: none;
+  color: #f3f4f6;
+  font-weight: bold;
 }
 
 .navbar a:hover {
-    color: #f5f5f5;
+  color: #ffffff;
 }
-.user-card {
-    background: #2a255f;
-    padding: 20px;
-    border-radius: 12px;
-    margin-bottom: 15px;
+
+/* Text */
+h1,
+h2,
+p {
+  margin-top: 0;
 }
