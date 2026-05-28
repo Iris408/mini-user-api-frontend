@@ -46,7 +46,7 @@ function AdminPage() {
 
       <h1>Admin Page</h1>
 
-      <p>Welcome administrator.</p>
+      <p className="admin-welcome">Welcome Administrator.</p>
 
       <div className="admin-buttons">
         <button onClick={getUsers}>Load Users</button>
