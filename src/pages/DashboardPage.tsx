@@ -1,62 +1,49 @@
-import {
-  useState,
-  useEffect
-} from "react";
+import { useState, useEffect } from "react";
 
 import Navbar from "../components/NavBar";
 
 function DashboardPage() {
-
-  const [profile, setProfile] =
-    useState<any>(null);
+  const [profile, setProfile] = useState<any>(null);
 
   async function getProfile() {
+    const token = localStorage.getItem("token");
 
-    const token =
-      localStorage.getItem("token");
+    if (!token) {
+      window.location.href = "/";
+      return;
+    }
 
-    const response = await fetch(
-      "http://127.0.0.1:8002/profile",
-      {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    );
+    const API_URL = import.meta.env.VITE_API_URL;
 
-    const data =
-      await response.json();
+    const response = await fetch(`${API_URL}/profile`, {
+      method: "GET",
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    });
 
-    setProfile(data);
+    if (!response.ok) {
+      localStorage.removeItem("token");
+      window.location.href = "/";
+      return;
+    }
+
+    const data = await response.json();
+
+    setProfile(data.user);
   }
 
   function logoutUser() {
-
     localStorage.removeItem("token");
-
     window.location.href = "/";
   }
 
   useEffect(() => {
-
-    const token =
-      localStorage.getItem("token");
-
-    if (!token) {
-
-      window.location.href = "/";
-
-      return;
-    }
-
     getProfile();
-
   }, []);
 
   return (
-
     <div className="container">
-
       <Navbar />
 
       <h1>Dashboard</h1>
@@ -64,31 +51,18 @@ function DashboardPage() {
       <br />
 
       {profile && (
-
         <div>
-
           <h2>User Information</h2>
 
-          <p>
-            Username: {profile.username}
-          </p>
+          <p>Username: {profile.username}</p>
 
-          <p>
-            Role: {profile.role || "user"}
-          </p>
+          <p>Role: {profile.role || "user"}</p>
 
-          <p>
-            User ID: {profile.id}
-          </p>
+          <p>User ID: {profile.id}</p>
 
-          <button onClick={logoutUser}>
-            Logout
-          </button>
-
+          <button onClick={logoutUser}>Logout</button>
         </div>
-
       )}
-
     </div>
   );
 }
