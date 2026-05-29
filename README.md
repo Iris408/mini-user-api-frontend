@@ -63,6 +63,7 @@ https://mini-user-api.onrender.com/docs
 | API Integration with deployed backend | デプロイ済みバックエンドとのAPI統合 |
 | Multi-Page frontend routing | マルチページフロントエンドルーティング |
 | Responsive UI Styling | レスポンシブUIスタイリング |
+| GitHub Actions CI Workflow | GitHub Actions CI ワークフロー |
 
 ---
 
